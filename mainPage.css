@@ -225,6 +225,7 @@ ul.grid{
 
 .hero .background-image{
 	position: absolute;
+	background-image: url('EarthImageHorizon.png');
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -242,7 +243,7 @@ ul.grid{
 	width: 100%;
 	height: 100%;
 	background-color: #414a4f;
-	opacity: 0.75;
+	opacity: 0.30;
 }
 
 .hero h1{
