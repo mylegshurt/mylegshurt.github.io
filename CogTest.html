@@ -1,0 +1,171 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="CogWebsiteCSS.css">
+</head>
+
+<body>
+
+
+<form id="regForm" action="">
+<!-- One "tab" for each step in the form: -->
+<div class="tab">
+  <p class="startpage"> Are you ready to start your task?
+  </p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(0)">Begin</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 1:
+  <p class="question"> 357 + 24
+  </p>
+  <p><input placeholder="Answer..." id="input1" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(1)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 2:
+  <p class="question"> 38 x 7 </p>
+  <p><input placeholder="Answer..." id="input2" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(2)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 3:
+  <p class="question"> 23 x 14 </p>
+  <p><input placeholder="Answer..." id="input3" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(3)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 4:
+  <p class="question"> 456 - 19 </p>
+  <p><input placeholder="Answer..." id="input4" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(4)">Next</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="tab">
+  <p class="startpage"> Congrats! You finished the task!</p>
+  <p>Start Time: <span id="startTime"></span></p>
+  <p>Stop Time: <span id="stopTime"></span></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="endBtn" onclick="results()">Check Answers</button>
+    </div>
+  </div>
+  <div id="results"></div>
+</div>
+
+</form>
+
+
+<footer class="footer-distributed">
+  <div class="footer-left">
+    <p class="footer-links">
+      <a href="index.html">Home</a>
+      &nbsp · &nbsp
+      <a href="research.html">Research</a>
+    </p>
+    <p>The Space Research Company &copy; 2019</p>
+  </div>
+</footer>
+
+
+<script type="text/javascript">
+
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form ...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  console.log(currentTab);
+}
+
+function addZero(x, n) {
+  while (x.toString().length < n) {
+    x = "0" + x;
+  }
+  return x;
+}
+
+function nextTab(i) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Hide the current tab:
+  x[i].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  if (i==0) {
+    //startTimer();
+    var timeStart = new Date();
+  //  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+    var x = document.getElementById("startTime");
+    var h = addZero(timeStart.getHours(), 2);
+    var m = addZero(timeStart.getMinutes(), 2);
+    var s = addZero(timeStart.getSeconds(), 2);
+    var ms = addZero(timeStart.getMilliseconds(), 3);
+    x.innerHTML = h + ":" + m + ":" + s + ":" + ms;
+    //
+    // var A = timeStartFormat.toLocaleTimeString();
+    // document.getElementById("startTime").innerHTML = A;
+  }
+  if (i >= x.length-2) {
+    var timeStop = new Date();
+    var x = document.getElementById("stopTime");
+    var h = addZero(timeStop.getHours(), 2);
+    var m = addZero(timeStop.getMinutes(), 2);
+    var s = addZero(timeStop.getSeconds(), 2);
+    var ms = addZero(timeStop.getMilliseconds(), 3);
+    x.innerHTML = h + ":" + m + ":" + s + ":" + ms;
+
+    // var B = timeStop.toLocaleTimeString();
+    // document.getElementById("stopTime").innerHTML =B;
+  }
+  currentTab = currentTab + 1;
+  showTab(currentTab);
+}
+
+
+function myTimer() {
+  var d = new Date();
+  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}
+
+function results() {
+//displays your answers compared to actual answer
+  document.getElementById("results").innerHTML = "Check Answers: " + "<br />" +
+  "1. " + document.getElementById("input1").value + "  Answer: 381" + "<br />" +
+  "2. " + document.getElementById("input2").value + "  Answer: 266" + "<br />" +
+  "3. " + document.getElementById("input3").value + "  Answer: 322" + "<br />" +
+  "4. " + document.getElementById("input4").value + "  Answer: 437";
+
+  document.getElementById("regForm").reset();
+}
+
+
+  </script>
+
+  </body>
+  </html>
