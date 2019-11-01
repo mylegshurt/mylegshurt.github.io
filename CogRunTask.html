@@ -1,0 +1,400 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="CogWebsiteCSS.css">
+</head>
+
+<body>
+
+<!-- <div id="endTask">
+  <div class="endButtonWrapper">
+    <button type="button" class="endButton" id="endButton" onclick="results()">Stop</button>
+  </div>
+</div> -->
+
+<form id="regForm" action="">
+<!-- One "tab" for each step in the form: -->
+<div class="tab">
+  <p class="startpage"> Are you ready to start your task?
+  </p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(0)">Begin</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  <div id="endTask">
+    <div class="endButtonWrapper">
+      <button type="button" class="endButton" id="endButton" onclick="results()">Stop</button>
+    </div>
+  </div>
+  Question 1:
+  <p class="question"> 31 + 24
+  </p>
+  <p><input placeholder="Answer..." id="input1" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(1)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 2:
+  <p class="question"> 23 - 7 </p>
+  <p><input placeholder="Answer..." id="input2" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(2)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 3:
+  <p class="question"> 94 + 14 </p>
+  <p><input placeholder="Answer..." id="input3" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(3)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 4:
+  <p class="question"> 59 - 19 </p>
+  <p><input placeholder="Answer..." id="input4" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(4)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 5:
+  <p class="question"> 33 - 29 </p>
+  <p><input placeholder="Answer..." id="input5" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(5)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 6:
+  <p class="question">12 + 37 </p>
+  <p><input placeholder="Answer..." id="input6" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(6)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 7:
+  <p class="question"> 32 - 5 </p>
+  <p><input placeholder="Answer..." id="input7" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(7)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 8:
+  <p class="question"> 77 - 82 </p>
+  <p><input placeholder="Answer..." id="input8" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(8)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 9:
+  <p class="question"> 38 + 50 </p>
+  <p><input placeholder="Answer..." id="input9" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(9)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 10:
+  <p class="question"> 90 - 22 </p>
+  <p><input placeholder="Answer..." id="input10" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(10)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 11:
+  <p class="question"> 93 - 40 </p>
+  <p><input placeholder="Answer..." id="input11" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(11)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 12:
+  <p class="question"> 52 + 64 </p>
+  <p><input placeholder="Answer..." id="input12" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(12)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 13:
+  <p class="question"> 98 - 7 </p>
+  <p><input placeholder="Answer..." id="input13" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(13)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 14:
+  <p class="question"> 35 - 54 </p>
+  <p><input placeholder="Answer..." id="input14" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(14)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 15:
+  <p class="question"> 73 + 73 </p>
+  <p><input placeholder="Answer..." id="input15" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(15)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 16:
+  <p class="question"> 1 - 3 </p>
+  <p><input placeholder="Answer..." id="input16" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(16)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 17:
+  <p class="question"> 3 - 22 </p>
+  <p><input placeholder="Answer..." id="input17" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(17)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 18:
+  <p class="question"> 6 + 56 </p>
+  <p><input placeholder="Answer..." id="input18" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(18)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 19:
+  <p class="question"> 88 + 54 </p>
+  <p><input placeholder="Answer..." id="input19" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(19)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 20:
+  <p class="question"> 22 - 55 </p>
+  <p><input placeholder="Answer..." id="input20" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(20)">Next</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="tab">
+  <p class="startpage"> Congrats! You finished the task!</p>
+  <p>Start Time: <span id="startTime"></span></p>
+  <p>Stop Time: <span id="stopTime"></span></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="endBtn" onclick="results()">Check Answers</button>
+    </div>
+  </div>
+</div>
+
+<div id="results"></div>
+
+</form>
+
+
+<footer class="footer-distributed">
+  <div class="footer-left">
+    <p class="footer-links">
+      <a href="index.html">Home</a>
+      &nbsp · &nbsp
+      <a href="research.html">Research</a>
+    </p>
+    <p>The Space Research Company &copy; 2019</p>
+  </div>
+</footer>
+
+
+<script type="text/javascript">
+
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab);
+var timeoutID;
+
+function showTab(n) {
+  // This function will display the specified tab of the form ...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  console.log(currentTab);
+}
+
+function addZero(x, n) {
+  while (x.toString().length < n) {
+    x = "0" + x;
+  }
+  return x;
+}
+
+
+function myTimer() {
+  var d = new Date();
+  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}
+
+function results() {
+//displays your answers compared to actual answer
+  var x = document.getElementsByClassName("tab");
+  x[currentTab].style.display = "none";
+
+  var timeStop = new Date();
+
+
+ // and give it some content
+  document.getElementById("results").innerHTML = "<b>Times-up! Congrats, you finished the task!</b> "
+  + "<br />" + "Start Time: " + timeStart + "<br />"
+  + "Stop Time: " + timeStop + "<br />"
+  + "<br />" + "Your answers: &emsp;&emsp;&emsp; Correct Answers:" + "<br />" +
+  "1.&emsp; " + document.getElementById("input1").value + "&emsp;&emsp;&emsp; Answer: 55" + "<br />" +
+  "2.&emsp; " + document.getElementById("input2").value + "&emsp;&emsp;&emsp; Answer: 16" + "<br />" +
+  "3.&emsp; " + document.getElementById("input3").value + "&emsp;&emsp;&emsp; Answer: 108" + "<br />" +
+  "4.&emsp; " + document.getElementById("input4").value + "&emsp;&emsp;&emsp; Answer: 40" + "<br />" +
+  "5.&emsp; " + document.getElementById("input5").value + "&emsp;&emsp;&emsp; Answer: 62" + "<br />" +
+  "6.&emsp; " + document.getElementById("input6").value + "&emsp;&emsp;&emsp; Answer: 49" + "<br />" +
+  "7.&emsp; " + document.getElementById("input7").value + "&emsp;&emsp;&emsp; Answer: 27" + "<br />" +
+  "8.&emsp; " + document.getElementById("input8").value + "&emsp;&emsp;&emsp; Answer: -5" + "<br />" +
+  "9.&emsp; " + document.getElementById("input9").value + "&emsp;&emsp;&emsp; Answer: 88" + "<br />" +
+  "10.&emsp; " + document.getElementById("input10").value + "&emsp;&emsp;&emsp; Answer: 68" + "<br />" +
+  "11.&emsp; " + document.getElementById("input11").value + "&emsp;&emsp;&emsp; Answer: 53" + "<br />" +
+  "12.&emsp; " + document.getElementById("input12").value + "&emsp;&emsp;&emsp; Answer: 116" + "<br />" +
+  "13.&emsp; " + document.getElementById("input13").value + "&emsp;&emsp;&emsp; Answer: 91" + "<br />" +
+  "14.&emsp; " + document.getElementById("input14").value + "&emsp;&emsp;&emsp; Answer: -19" + "<br />" +
+  "15.&emsp; " + document.getElementById("input15").value + "&emsp;&emsp;&emsp; Answer: 146" + "<br />" +
+  "16.&emsp; " + document.getElementById("input16").value + "&emsp;&emsp;&emsp; Answer: -2" + "<br />" +
+  "17.&emsp; " + document.getElementById("input17").value + "&emsp;&emsp;&emsp; Answer: -19" + "<br />" +
+  "18.&emsp; " + document.getElementById("input18").value + "&emsp;&emsp;&emsp; Answer: 62" + "<br />" +
+  "19.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 142" + "<br />" +
+  "20.&emsp; " + document.getElementById("input20").value + "&emsp;&emsp;&emsp; Answer: -33";
+
+  // 1. Create the restart button
+  var restartButton = document.createElement("restartButton");
+  restartButton.innerHTML = "Restart Task";
+  restartButton.onclick = function() {
+    location.href='https://www.tsrco.com/CogRunTask.html'
+  };
+
+  // 2. Append restart button somewhere
+  var body = document.getElementsByTagName("form")[0];
+  body.appendChild(restartButton);
+
+//resets form
+  document.getElementById("regForm").reset();
+}
+
+
+function nextTab(i) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Hide the current tab:
+  x[i].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  if (i==0) {
+    //startTimer();
+    timeoutID = window.setTimeout(results, 3*1000); //set to 300 second timeout
+    timeStart = new Date();
+  //  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+    var x = document.getElementById("startTime");
+    var h = addZero(timeStart.getHours(), 2);
+    var m = addZero(timeStart.getMinutes(), 2);
+    var s = addZero(timeStart.getSeconds(), 2);
+    var ms = addZero(timeStart.getMilliseconds(), 3);
+    x.innerHTML = h + ":" + m + ":" + s + ":" + ms;
+    //
+    // var A = timeStartFormat.toLocaleTimeString();
+    // document.getElementById("startTime").innerHTML = A;
+  }
+  if (i >= x.length-2) {
+    timeStop = new Date();
+    var x = document.getElementById("stopTime");
+    var h = addZero(timeStop.getHours(), 2);
+    var m = addZero(timeStop.getMinutes(), 2);
+    var s = addZero(timeStop.getSeconds(), 2);
+    var ms = addZero(timeStop.getMilliseconds(), 3);
+    x.innerHTML = h + ":" + m + ":" + s + ":" + ms;
+
+    // var B = timeStop.toLocaleTimeString();
+    // document.getElementById("stopTime").innerHTML =B;
+  }
+  currentTab = currentTab + 1;
+  showTab(currentTab);
+}
+
+
+
+  </script>
+
+  </body>
+  </html>

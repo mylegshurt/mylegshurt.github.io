@@ -2,6 +2,13 @@ body {
   font-family: Sans-Serif;
 }
 
+.timer {
+ background-color:#419D78;
+ color:#EFD0CA;
+ font-size:20px;
+ text-align:center;
+}
+
 .button {
   background-color: #0080FF;
   border: none;
@@ -22,6 +29,51 @@ body {
   background-color: #1034A6;
 }
 
+.btn:focus {
+      outline: none;
+}
+
+.endButton {
+  background-color: #8B0000;
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  align: center;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 2px 2px;
+  border-radius: 60px;
+  cursor:pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.endButtonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+restartButton {
+  margin-top: 20px;
+  background-color: #0080FF;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  align: center;
+  text-decoration: none;
+  font-size: 25px;
+  border-radius: 12px;
+  cursor:pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+restartButton:hover{
+  background-color: #1034A6;
+}
+
 /* Style the form */
 #regForm {
   background-color: #ffffff;
@@ -31,6 +83,14 @@ body {
   min-width: 300px;
 }
 
+#results {
+  padding-bottom: 50px;
+}
+
+
+#endTask {
+
+}
 /* Style startpage */
 
 .startpage {

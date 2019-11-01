@@ -1,0 +1,345 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="CogWebsiteCSS.css">
+</head>
+
+<body>
+
+
+<form id="regForm" action="">
+<!-- One "tab" for each step in the form: -->
+<div class="tab">
+  <p class="startpage"> Please answer these questions about your background to the best of your ability.
+  </p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(0)">Begin</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 1:
+  <p class="question"> Subject ID#: (put in your subject ID number provided by operator)
+  </p>
+  <p><input placeholder="Answer..." id="input1" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(1)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 2:
+  <p class="question"> Your Full Name: </p>
+  <p><input placeholder="Answer..." id="input2" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(2)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 3:
+  <p class="question"> Age:  </p>
+  <p><input placeholder="Answer..." id="input3" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(3)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 4:
+  <p class="question"> Gender: </p>
+  <p><input placeholder="Answer..." id="input4" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(4)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 5:
+  <p class="question"> What levels of education have you had, or are currently pursuing? (Associate's, Bachelors, Masters, etc.) </p>
+  <p><input placeholder="Answer..." id="input5" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(5)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 6:
+  <p class="question">What is your profession? </p>
+  <p><input placeholder="Answer..." id="input6" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(6)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 7:
+  <p class="question"> Is English your first language? If not, what do you consider as your native language? </p>
+  <p><input placeholder="Answer..." id="input7" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(7)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 8:
+  <p class="question"> Do you have experience with flight simulators? If yes, please specify in what capacity?</p>
+  <p><input placeholder="Answer..." id="input8" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(8)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 9:
+  <p class="question"> Do you have experience with tele-operated robotic systems? If yes, please specify in what capacity? </p>
+  <p><input placeholder="Answer..." id="input9" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(9)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 10:
+  <p class="question"> Which hand do you consider as your dominant hand? (Right, left, or both)</p>
+  <p><input placeholder="Answer..." id="input10" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(10)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 11:
+  <p class="question"> Do you use corrective lenses? If yes, then what type (glasses or contacts)?</p>
+  <p><input placeholder="Answer..." id="input11" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(11)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 12:
+  <p class="question"> How many times do you typically exercise a week? And for about how long?</p>
+  <p><input placeholder="Answer..." id="input12" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(12)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 13:
+  <p class="question"> Number of hours slept last night? And the previous night?</p>
+  <p><input placeholder="Answer..." id="input13" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(13)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 14:
+  <p class="question"> When did you last eat? </p>
+  <p><input placeholder="Answer..." id="input14" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(14)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 15:
+  <p class="question"> What have you eaten today? </p>
+  <p><input placeholder="Answer..." id="input15" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(15)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 16:
+  <p class="question"> How much water have you drank today (estimate): </p>
+  <p><input placeholder="Answer..." id="input16" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(16)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 17:
+  <p class="question"> Have you had any stimulants today (such as caffeine, Redbull, medication)? </p>
+  <p><input placeholder="Answer..." id="input17" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(17)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 18:
+  <p class="question"> Have you had any inhibtors today (such as alcohol, recreational drugs)? </p>
+  <p><input placeholder="Answer..." id="input18" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(18)">Next</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="tab">
+  <p class="startpage"> Thank you for your responses! You have finished the task!</p>
+  <p>Start Time: <span id="startTime"></span></p>
+  <p>Stop Time: <span id="stopTime"></span></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="endBtn" onclick="results()">Show Answers</button>
+    </div>
+  </div>
+  <div id="results"></div>
+</div>
+
+</form>
+
+
+<footer class="footer-distributed">
+  <div class="footer-left">
+    <p class="footer-links">
+      <a href="index.html">Home</a>
+      &nbsp · &nbsp
+      <a href="research.html">Research</a>
+    </p>
+    <p>The Space Research Company &copy; 2019</p>
+  </div>
+</footer>
+
+
+<script type="text/javascript">
+
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form ...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  console.log(currentTab);
+}
+
+function start() {
+  showTab(currentTab);
+}
+
+
+function addZero(x, n) {
+  while (x.toString().length < n) {
+    x = "0" + x;
+  }
+  return x;
+}
+
+function nextTab(i) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Hide the current tab:
+  x[i].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  if (i==0) {
+    //startTimer();
+    var timeStart = new Date();
+  //  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+    var x = document.getElementById("startTime");
+    var h = addZero(timeStart.getHours(), 2);
+    var m = addZero(timeStart.getMinutes(), 2);
+    var s = addZero(timeStart.getSeconds(), 2);
+    var ms = addZero(timeStart.getMilliseconds(), 3);
+    x.innerHTML = h + ":" + m + ":" + s + ":" + ms;
+    //
+    // var A = timeStartFormat.toLocaleTimeString();
+    // document.getElementById("startTime").innerHTML = A;
+  }
+  if (i >= x.length-2) {
+    var timeStop = new Date();
+    var x = document.getElementById("stopTime");
+    var h = addZero(timeStop.getHours(), 2);
+    var m = addZero(timeStop.getMinutes(), 2);
+    var s = addZero(timeStop.getSeconds(), 2);
+    var ms = addZero(timeStop.getMilliseconds(), 3);
+    x.innerHTML = h + ":" + m + ":" + s + ":" + ms;
+
+    // var B = timeStop.toLocaleTimeString();
+    // document.getElementById("stopTime").innerHTML =B;
+  }
+  currentTab = currentTab + 1;
+  showTab(currentTab);
+}
+
+
+function myTimer() {
+  var d = new Date();
+  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}
+
+function results() {
+//displays your answers compared to actual answer
+  document.getElementById("results").innerHTML =
+  "1. Subject ID:  " + document.getElementById("input1").value + "<br />" +
+  "2. Name: " + document.getElementById("input2").value + "<br />" +
+  "3. Age: " + document.getElementById("input3").value + "<br />" +
+  "4. Gender: " + document.getElementById("input4").value + "<br />" +
+  "5. Education: " + document.getElementById("input5").value + "<br />" +
+  "6. Profession: " + document.getElementById("input6").value + "<br />" +
+  "7. First Language English? " + document.getElementById("input7").value + "<br />" +
+  "8. Flight Sim Experience? " + document.getElementById("input8").value + "<br />" +
+  "9. Tele-operated Robotics Experience? " + document.getElementById("input9").value + "<br />" +
+  "10. Dominant Hand: " + document.getElementById("input10").value + "<br />" +
+  "11. Corrective Lenses? " + document.getElementById("input11").value +  "<br />" +
+  "12. Exercise Frequency and Duration: " + document.getElementById("input3").value +  "<br />" +
+  "13. Hours slept: " + document.getElementById("input12").value + "<br />" +
+  "14. Last Ate: " + document.getElementById("input13").value  + "<br />" +
+  "15. Food Ate: " + document.getElementById("input14").value  + "<br />" +
+  "16. Water Drank: " + document.getElementById("input15").value  + "<br />" +
+  "17. Stimulants? " + document.getElementById("input16").value  + "<br />" +
+  "18. Inhibitors? " + document.getElementById("input17").value;
+
+
+  document.getElementById("regForm").reset();
+}
+
+
+  </script>
+
+  </body>
+  </html>

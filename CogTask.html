@@ -1,0 +1,998 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="CogWebsiteCSS.css">
+</head>
+
+<body>
+
+<!-- <div id="endTask">
+  <div class="endButtonWrapper">
+    <button type="button" class="endButton" id="endButton" onclick="results()">Stop</button>
+  </div>
+</div> -->
+
+<form id="regForm" action="">
+<!-- One "tab" for each step in the form: -->
+<div class="tab">
+  <p class="startpage"> Are you ready to start your task?
+  </p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(0)">Begin</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  <div id="endTask">
+    <div class="endButtonWrapper">
+      <button type="button" class="endButton" id="endButton" onclick="results()">Stop</button>
+    </div>
+  </div>
+  Question 1:
+  <p class="question"> 98 + 54
+  </p>
+  <p><input placeholder="Answer..." id="input1" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(1)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 2:
+  <p class="question"> 93 - 63 </p>
+  <p><input placeholder="Answer..." id="input2" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(2)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 3:
+  <p class="question"> 5 + 29 </p>
+  <p><input placeholder="Answer..." id="input3" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(3)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 4:
+  <p class="question"> 24 - 69 </p>
+  <p><input placeholder="Answer..." id="input4" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(4)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 5:
+  <p class="question"> 70 + 36 </p>
+  <p><input placeholder="Answer..." id="input5" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(5)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 6:
+  <p class="question">87 + 58 </p>
+  <p><input placeholder="Answer..." id="input6" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(6)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 7:
+  <p class="question"> 17 - 62 </p>
+  <p><input placeholder="Answer..." id="input7" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(7)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 8:
+  <p class="question"> 16 - 4 </p>
+  <p><input placeholder="Answer..." id="input8" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(8)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 9:
+  <p class="question"> 43 + 95 </p>
+  <p><input placeholder="Answer..." id="input9" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(9)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 10:
+  <p class="question"> 18 - 82 </p>
+  <p><input placeholder="Answer..." id="input10" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(10)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 11:
+  <p class="question"> 99 - 23 </p>
+  <p><input placeholder="Answer..." id="input11" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(11)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 12:
+  <p class="question"> 34 + 71 </p>
+  <p><input placeholder="Answer..." id="input12" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(12)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 13:
+  <p class="question"> 2 - 72 </p>
+  <p><input placeholder="Answer..." id="input13" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(13)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 14:
+  <p class="question"> 92 - 68 </p>
+  <p><input placeholder="Answer..." id="input14" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(14)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 15:
+  <p class="question"> 33 + 46 </p>
+  <p><input placeholder="Answer..." id="input15" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(15)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 16:
+  <p class="question"> 50 - 37 </p>
+  <p><input placeholder="Answer..." id="input16" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(16)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 17:
+  <p class="question"> 2 - 21 </p>
+  <p><input placeholder="Answer..." id="input17" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(17)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 18:
+  <p class="question"> 43 + 76 </p>
+  <p><input placeholder="Answer..." id="input18" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(18)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 19:
+  <p class="question"> 14 + 12 </p>
+  <p><input placeholder="Answer..." id="input19" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(19)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 20:
+  <p class="question"> 66 - 54 </p>
+  <p><input placeholder="Answer..." id="input20" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(20)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 21:
+  <p class="question"> 96 + 1 </p>
+  <p><input placeholder="Answer..." id="input21" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(21)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 22:
+  <p class="question"> 34 - 53 </p>
+  <p><input placeholder="Answer..." id="input22" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(22)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 23:
+  <p class="question"> 45 - 3 </p>
+  <p><input placeholder="Answer..." id="input23" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(23)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 24:
+  <p class="question"> 40 - 7 </p>
+  <p><input placeholder="Answer..." id="input24" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(24)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 25:
+  <p class="question"> 50 + 90 </p>
+  <p><input placeholder="Answer..." id="input25" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(25)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 26:
+  <p class="question"> 29 - 52 </p>
+  <p><input placeholder="Answer..." id="input26" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(26)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 27:
+  <p class="question"> 39 - 72 </p>
+  <p><input placeholder="Answer..." id="input27" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(27)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 28:
+  <p class="question"> 61 + 95 </p>
+  <p><input placeholder="Answer..." id="input28" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(28)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 29:
+  <p class="question"> 66 - 91 </p>
+  <p><input placeholder="Answer..." id="input29" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(29)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 30:
+  <p class="question"> 24 + 77 </p>
+  <p><input placeholder="Answer..." id="input30" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(30)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 31:
+  <p class="question"> 69 + 37 </p>
+  <p><input placeholder="Answer..." id="input31" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(31)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 32:
+  <p class="question"> 7 + 32 </p>
+  <p><input placeholder="Answer..." id="input32" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(32)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 33:
+  <p class="question"> 42 + 4 </p>
+  <p><input placeholder="Answer..." id="input33" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(33)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 34:
+  <p class="question"> 66 - 6 </p>
+  <p><input placeholder="Answer..." id="input34" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(34)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 35:
+  <p class="question"> 67 + 3 </p>
+  <p><input placeholder="Answer..." id="input35" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(35)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 36:
+  <p class="question"> 81 + 58 </p>
+  <p><input placeholder="Answer..." id="input36" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(36)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 37:
+  <p class="question"> 41 - 6 </p>
+  <p><input placeholder="Answer..." id="input37" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(37)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 38:
+  <p class="question"> 73 + 16 </p>
+  <p><input placeholder="Answer..." id="input38" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(38)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 39:
+  <p class="question"> 70 - 37 </p>
+  <p><input placeholder="Answer..." id="input39" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(39)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 40:
+  <p class="question"> 49 - 95 </p>
+  <p><input placeholder="Answer..." id="input40" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(40)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 41:
+  <p class="question"> 74 + 39 </p>
+  <p><input placeholder="Answer..." id="input41" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(41)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 42:
+  <p class="question"> 11 - 3 </p>
+  <p><input placeholder="Answer..." id="input42" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(42)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 43:
+  <p class="question"> 29 - 43 </p>
+  <p><input placeholder="Answer..." id="input43" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(43)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 44:
+  <p class="question"> 48 - 88 </p>
+  <p><input placeholder="Answer..." id="input44" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(44)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 45:
+  <p class="question"> 65 + 90 </p>
+  <p><input placeholder="Answer..." id="input45" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(45)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 46:
+  <p class="question"> 19 - 59 </p>
+  <p><input placeholder="Answer..." id="input46" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(46)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 47:
+  <p class="question"> 25 - 29 </p>
+  <p><input placeholder="Answer..." id="input47" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(47)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 48:
+  <p class="question"> 44 + 84 </p>
+  <p><input placeholder="Answer..." id="input48" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(48)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 49:
+  <p class="question"> 63 - 15 </p>
+  <p><input placeholder="Answer..." id="input49" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(49)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 50:
+  <p class="question"> 80 - 27 </p>
+  <p><input placeholder="Answer..." id="input50" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(50)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 51:
+  <p class="question"> 25 + 16 </p>
+  <p><input placeholder="Answer..." id="input51" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(51)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 52:
+  <p class="question"> 8 + 85 </p>
+  <p><input placeholder="Answer..." id="input52" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(52)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 53:
+  <p class="question"> 60 -79 </p>
+  <p><input placeholder="Answer..." id="input53" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(53)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 54:
+  <p class="question"> 83 - 9 </p>
+  <p><input placeholder="Answer..." id="input54" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(54)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 55:
+  <p class="question"> 17 + 19 </p>
+  <p><input placeholder="Answer..." id="input55" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(55)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 56:
+  <p class="question"> 70 - 33 </p>
+  <p><input placeholder="Answer..." id="input56" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(56)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 57:
+  <p class="question"> 53 - 15 </p>
+  <p><input placeholder="Answer..." id="input57" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(57)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 58:
+  <p class="question"> 43 + 84 </p>
+  <p><input placeholder="Answer..." id="input58" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(58)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 59:
+  <p class="question"> 9 - 6 </p>
+  <p><input placeholder="Answer..." id="input59" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(59)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 60:
+  <p class="question"> 21 + 42 </p>
+  <p><input placeholder="Answer..." id="input60" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(60)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 61:
+  <p class="question"> 10 + 34 </p>
+  <p><input placeholder="Answer..." id="input61" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(61)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 62:
+  <p class="question"> 14 + 77 </p>
+  <p><input placeholder="Answer..." id="input62" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(62)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 63:
+  <p class="question"> 89 + 84 </p>
+  <p><input placeholder="Answer..." id="input63" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(63)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 64:
+  <p class="question"> 32 - 7 </p>
+  <p><input placeholder="Answer..." id="input64" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(64)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 65:
+  <p class="question"> 52 + 87 </p>
+  <p><input placeholder="Answer..." id="input65" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(65)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 66:
+  <p class="question"> 23 + 19 </p>
+  <p><input placeholder="Answer..." id="input66" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(66)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 67:
+  <p class="question"> 6 + 56 </p>
+  <p><input placeholder="Answer..." id="input67" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(67)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 68:
+  <p class="question"> 35 - 72 </p>
+  <p><input placeholder="Answer..." id="input68" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(68)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 69:
+  <p class="question"> 17 - 69 </p>
+  <p><input placeholder="Answer..." id="input69" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(69)">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="tab">
+  Question 70:
+  <p class="question"> 66 + 45 </p>
+  <p><input placeholder="Answer..." id="input70" oninput="this.className = ''" autofocus></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="nextBtn" onclick="nextTab(70)">Next</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="tab">
+  <p class="startpage"> Congrats! You finished the task!</p>
+  <p>Start Time: <span id="startTime"></span></p>
+  <p>Stop Time: <span id="stopTime"></span></p>
+  <div style="overflow:auto;">
+    <div class="buttonWrapper">
+      <button type="button" class="button" id="endBtn" onclick="results()">Check Answers</button>
+    </div>
+  </div>
+</div>
+
+<div id="results"></div>
+
+</form>
+
+
+<footer class="footer-distributed">
+  <div class="footer-left">
+    <p class="footer-links">
+      <a href="index.html">Home</a>
+      &nbsp · &nbsp
+      <a href="research.html">Research</a>
+    </p>
+    <p>The Space Research Company &copy; 2019</p>
+  </div>
+</footer>
+
+
+<script type="text/javascript">
+
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab);
+var timeoutID;
+
+function showTab(n) {
+  // This function will display the specified tab of the form ...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  console.log(currentTab);
+}
+
+function addZero(x, n) {
+  while (x.toString().length < n) {
+    x = "0" + x;
+  }
+  return x;
+}
+
+
+function myTimer() {
+  var d = new Date();
+  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}
+
+function results() {
+//displays your answers compared to actual answer
+  var x = document.getElementsByClassName("tab");
+  x[currentTab].style.display = "none";
+  var timeStop = new Date();
+
+ // and give it some content
+  document.getElementById("results").innerHTML = "<b>Times-up! Congrats, you finished the task!</b> "
+  + "<br />" + "Start Time: " + timeStart + "<br />"
+  + "Stop Time: " + timeStop + "<br />"
+  +"Your answers: &emsp;&emsp;&emsp; Correct Answers:" + "<br />" +
+  "1.&emsp; " + document.getElementById("input1").value + "&emsp;&emsp;&emsp; Answer: 152" + "<br />" +
+  "2.&emsp; " + document.getElementById("input2").value + "&emsp;&emsp;&emsp; Answer: 30" + "<br />" +
+  "3.&emsp; " + document.getElementById("input3").value + "&emsp;&emsp;&emsp; Answer: 34" + "<br />" +
+  "4.&emsp; " + document.getElementById("input4").value + "&emsp;&emsp;&emsp; Answer: -45" + "<br />" +
+  "5.&emsp; " + document.getElementById("input5").value + "&emsp;&emsp;&emsp; Answer: 106" + "<br />" +
+  "6.&emsp; " + document.getElementById("input6").value + "&emsp;&emsp;&emsp; Answer: 145" + "<br />" +
+  "7.&emsp; " + document.getElementById("input7").value + "&emsp;&emsp;&emsp; Answer: -45" + "<br />" +
+  "8.&emsp; " + document.getElementById("input8").value + "&emsp;&emsp;&emsp; Answer: 12" + "<br />" +
+  "9.&emsp; " + document.getElementById("input9").value + "&emsp;&emsp;&emsp; Answer: 138" + "<br />" +
+  "10.&emsp; " + document.getElementById("input10").value + "&emsp;&emsp;&emsp; Answer: -64" + "<br />" +
+  "11.&emsp; " + document.getElementById("input11").value + "&emsp;&emsp;&emsp; Answer: 76" + "<br />" +
+  "12.&emsp; " + document.getElementById("input12").value + "&emsp;&emsp;&emsp; Answer: 105" + "<br />" +
+  "13.&emsp; " + document.getElementById("input13").value + "&emsp;&emsp;&emsp; Answer: -70" + "<br />" +
+  "14.&emsp; " + document.getElementById("input14").value + "&emsp;&emsp;&emsp; Answer: 24" + "<br />" +
+  "15.&emsp; " + document.getElementById("input15").value + "&emsp;&emsp;&emsp; Answer: 79" + "<br />" +
+  "16.&emsp; " + document.getElementById("input16").value + "&emsp;&emsp;&emsp; Answer: 13" + "<br />" +
+  "17.&emsp; " + document.getElementById("input17").value + "&emsp;&emsp;&emsp; Answer: -19" + "<br />" +
+  "18.&emsp; " + document.getElementById("input18").value + "&emsp;&emsp;&emsp; Answer: 119" + "<br />" +
+  "19.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 26" + "<br />" +
+  "20.&emsp; " + document.getElementById("input20").value + "&emsp;&emsp;&emsp; Answer: 12" + "<br />" +
+  "21.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 97" + "<br />" +
+  "22.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: -19" + "<br />" +
+  "23.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 42" + "<br />" +
+  "24.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 33" + "<br />" +
+  "25.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 140" + "<br />" +
+  "26.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: -23" + "<br />" +
+  "27.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: -33" + "<br />" +
+  "28.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 156" + "<br />" +
+  "29.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: -25" + "<br />" +
+  "30.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 101" + "<br />" +
+  "31.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 106" + "<br />" +
+  "32.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 39" + "<br />" +
+  "33.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 46" + "<br />" +
+  "34.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 60" + "<br />" +
+  "35.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 70" + "<br />" +
+  "36.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 139" + "<br />" +
+  "37.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 35" + "<br />" +
+  "38.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 89" + "<br />" +
+  "39.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 33" + "<br />" +
+  "40.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 144" + "<br />" +
+  "41.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 113" + "<br />" +
+  "42.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 8" + "<br />" +
+  "43.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: -14" + "<br />" +
+  "44.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: -40" + "<br />" +
+  "45.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 155" + "<br />" +
+  "46.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: -40" + "<br />" +
+  "47.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: -4" + "<br />" +
+  "48.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 128" + "<br />" +
+  "49.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 48" + "<br />" +
+  "50.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 53" + "<br />" +
+  "51.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 41" + "<br />" +
+  "52.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 93" + "<br />" +
+  "53.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: -19" + "<br />" +
+  "54.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 74" + "<br />" +
+  "55.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 36" + "<br />" +
+  "56.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 37" + "<br />" +
+  "57.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 38" + "<br />" +
+  "58.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 127" + "<br />" +
+  "59.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 3" + "<br />" +
+  "60.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 63" + "<br />" +
+  "61.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 44" + "<br />" +
+  "62.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 91" + "<br />" +
+  "63.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 173" + "<br />" +
+  "64.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 25" + "<br />" +
+  "65.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 139" + "<br />" +
+  "66.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 42" + "<br />" +
+  "67.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 62" + "<br />" +
+  "68.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: -37" + "<br />" +
+  "69.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: -52" + "<br />" +
+  "70.&emsp; " + document.getElementById("input19").value + "&emsp;&emsp;&emsp; Answer: 111" + "<br />";
+
+  // 1. Create the restart button
+  var restartButton = document.createElement("restartButton");
+  restartButton.innerHTML = "Restart Task";
+  restartButton.onclick = function() {
+    location.href='https://www.tsrco.com/CogTask.html'
+  };
+
+  // 2. Append restart button somewhere
+  var body = document.getElementsByTagName("form")[0];
+  body.appendChild(restartButton);
+
+//resets form
+  document.getElementById("regForm").reset();
+}
+
+
+function nextTab(i) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Hide the current tab:
+  x[i].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  if (i==0) {
+    //startTimer();
+    timeoutID = window.setTimeout(results, 300*1000); //set to 300 second timeout
+    timeStart = new Date();
+  //  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+    var x = document.getElementById("startTime");
+    var h = addZero(timeStart.getHours(), 2);
+    var m = addZero(timeStart.getMinutes(), 2);
+    var s = addZero(timeStart.getSeconds(), 2);
+    var ms = addZero(timeStart.getMilliseconds(), 3);
+    x.innerHTML = h + ":" + m + ":" + s + ":" + ms;
+    //
+    // var A = timeStartFormat.toLocaleTimeString();
+    // document.getElementById("startTime").innerHTML = A;
+  }
+  if (i >= x.length-2) {
+    timeStop = new Date();
+    var x = document.getElementById("stopTime");
+    var h = addZero(timeStop.getHours(), 2);
+    var m = addZero(timeStop.getMinutes(), 2);
+    var s = addZero(timeStop.getSeconds(), 2);
+    var ms = addZero(timeStop.getMilliseconds(), 3);
+    x.innerHTML = h + ":" + m + ":" + s + ":" + ms;
+
+    // var B = timeStop.toLocaleTimeString();
+    // document.getElementById("stopTime").innerHTML =B;
+  }
+  currentTab = currentTab + 1;
+  showTab(currentTab);
+}
+
+
+
+  </script>
+
+  </body>
+  </html>
