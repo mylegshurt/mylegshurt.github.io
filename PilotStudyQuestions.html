@@ -278,7 +278,7 @@ function nextTab(i) {
   // This function will figure out which tab to display
   var x = document.getElementsByClassName("tab");
   var y  = i + 1;
-  document.getElementById("input" + y).focus(); //focus on input field
+  document.getElementById("input" + y); //focus on input field
   // Hide the current tab:
   x[i].style.display = "none";
 //  console.log(inputInfo);
