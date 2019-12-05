@@ -23,7 +23,7 @@
   Question 1:
   <p class="question"> Subject ID#: (put in your subject ID number provided by operator)
   </p>
-  <p><input placeholder="Answer..." id="input1" oninput="this.className = ''" autofocus></p>
+  <p><input placeholder="Answer..." type="text" id="input1" class="inputInfo" oninput=highlightSubmit()></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(1)">Next</button>
@@ -33,8 +33,8 @@
 
 <div class="tab">
   Question 2:
-  <p class="question"> Your Full Name: </p>
-  <p><input placeholder="Answer..." id="input2" oninput="this.className = ''" autofocus></p>
+  <p class="question"> Your First and Last Name: </p>
+  <p><input placeholder="Answer..."  type="text" id="input2" class="inputInfo"></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(2)">Next</button>
@@ -45,7 +45,7 @@
 <div class="tab">
   Question 3:
   <p class="question"> Age:  </p>
-  <p><input placeholder="Answer..." id="input3" oninput="this.className = ''" autofocus></p>
+  <p><input placeholder="Answer..." id="input3" class="inputInfo"></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(3)">Next</button>
@@ -56,7 +56,7 @@
 <div class="tab">
   Question 4:
   <p class="question"> Gender: </p>
-  <p><input placeholder="Answer..." id="input4" oninput="this.className = ''" autofocus></p>
+  <p><input placeholder="Answer..." id="input4" class="inputInfo"></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(4)">Next</button>
@@ -67,7 +67,7 @@
 <div class="tab">
   Question 5:
   <p class="question"> What levels of education have you had, or are currently pursuing? (Associate's, Bachelors, Masters, etc.) </p>
-  <p><input placeholder="Answer..." id="input5" oninput="this.className = ''" autofocus></p>
+  <p><input placeholder="Answer..." id="input5" oninput="this.className = ''" ></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(5)">Next</button>
@@ -77,8 +77,8 @@
 
 <div class="tab">
   Question 6:
-  <p class="question">What is your profession? </p>
-  <p><input placeholder="Answer..." id="input6" oninput="this.className = ''" autofocus></p>
+  <p class="question">What is your profession? (i.e. student, engineer, professor etc.) </p>
+  <p><input placeholder="Answer..." id="input6" oninput="this.className = ''" ></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(6)">Next</button>
@@ -89,7 +89,7 @@
 <div class="tab">
   Question 7:
   <p class="question"> Is English your first language? If not, what do you consider as your native language? </p>
-  <p><input placeholder="Answer..." id="input7" oninput="this.className = ''" autofocus></p>
+  <p><input placeholder="Answer..." id="input7" oninput="this.className = ''" ></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(7)">Next</button>
@@ -99,8 +99,8 @@
 
 <div class="tab">
   Question 8:
-  <p class="question"> Do you have experience with flight simulators? If yes, please specify in what capacity?</p>
-  <p><input placeholder="Answer..." id="input8" oninput="this.className = ''" autofocus></p>
+  <p class="question"> Do you have experience with flight simulators? If yes, please briefly describe what you used it for?</p>
+  <p><input placeholder="Answer..." id="input8" oninput="this.className = ''" ></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(8)">Next</button>
@@ -110,8 +110,8 @@
 
 <div class="tab">
   Question 9:
-  <p class="question"> Do you have experience with tele-operated robotic systems? If yes, please specify in what capacity? </p>
-  <p><input placeholder="Answer..." id="input9" oninput="this.className = ''" autofocus></p>
+  <p class="question"> Do you have experience with tele-operated robotic systems? If yes, please briefly describe what you used it for? </p>
+  <p><input placeholder="Answer..." id="input9" oninput="this.className = ''" ></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(9)">Next</button>
@@ -122,7 +122,7 @@
 <div class="tab">
   Question 10:
   <p class="question"> Which hand do you consider as your dominant hand? (Right, left, or both)</p>
-  <p><input placeholder="Answer..." id="input10" oninput="this.className = ''" autofocus></p>
+  <p><input placeholder="Answer..." id="input10" oninput="this.className = ''" ></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(10)">Next</button>
@@ -133,7 +133,7 @@
 <div class="tab">
   Question 11:
   <p class="question"> Do you use corrective lenses? If yes, then what type (glasses or contacts)?</p>
-  <p><input placeholder="Answer..." id="input11" oninput="this.className = ''" autofocus></p>
+  <p><input placeholder="Answer..." id="input11" oninput="this.className = ''" ></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(11)">Next</button>
@@ -144,7 +144,7 @@
 <div class="tab">
   Question 12:
   <p class="question"> How many times do you typically exercise a week? And for about how long?</p>
-  <p><input placeholder="Answer..." id="input12" oninput="this.className = ''" autofocus></p>
+  <p><input placeholder="Answer..." id="input12" oninput="this.className = ''" ></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(12)">Next</button>
@@ -154,8 +154,8 @@
 
 <div class="tab">
   Question 13:
-  <p class="question"> Number of hours slept last night? And the previous night?</p>
-  <p><input placeholder="Answer..." id="input13" oninput="this.className = ''" autofocus></p>
+  <p class="question"> Number of hours slept last night? And the previous night? (Ex: 7, 8)</p>
+  <p><input placeholder="Answer..." id="input13" oninput="this.className = ''" ></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(13)">Next</button>
@@ -165,8 +165,8 @@
 
 <div class="tab">
   Question 14:
-  <p class="question"> When did you last eat? </p>
-  <p><input placeholder="Answer..." id="input14" oninput="this.className = ''" autofocus></p>
+  <p class="question"> About when did you last eat a full meal? </p>
+  <p><input placeholder="Answer..." id="input14" oninput="this.className = ''" ></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(14)">Next</button>
@@ -176,8 +176,8 @@
 
 <div class="tab">
   Question 15:
-  <p class="question"> What have you eaten today? </p>
-  <p><input placeholder="Answer..." id="input15" oninput="this.className = ''" autofocus></p>
+  <p class="question"> Briefly describe what types of food (sandwich, fruit, cereal etc.) you have eaten today (if anything)? </p>
+  <p><input placeholder="Answer..." id="input15" oninput="this.className = ''" ></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(15)">Next</button>
@@ -188,7 +188,7 @@
 <div class="tab">
   Question 16:
   <p class="question"> How much water have you drank today (estimate): </p>
-  <p><input placeholder="Answer..." id="input16" oninput="this.className = ''" autofocus></p>
+  <p><input placeholder="Answer..." id="input16" oninput="this.className = ''" ></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(16)">Next</button>
@@ -199,7 +199,7 @@
 <div class="tab">
   Question 17:
   <p class="question"> Have you had any stimulants today (such as caffeine, Redbull, medication)? </p>
-  <p><input placeholder="Answer..." id="input17" oninput="this.className = ''" autofocus></p>
+  <p><input placeholder="Answer..." id="input17" oninput="this.className = ''" ></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(17)">Next</button>
@@ -210,7 +210,7 @@
 <div class="tab">
   Question 18:
   <p class="question"> Have you had any inhibtors today (such as alcohol, recreational drugs)? </p>
-  <p><input placeholder="Answer..." id="input18" oninput="this.className = ''" autofocus></p>
+  <p><input placeholder="Answer..." id="input18" oninput="this.className = ''" ></p>
   <div style="overflow:auto;">
     <div class="buttonWrapper">
       <button type="button" class="button" id="nextBtn" onclick="nextTab(18)">Next</button>
@@ -263,6 +263,10 @@ function start() {
 }
 
 
+function highlightSubmit()  {
+  document.getElementById("nextBtn").autofocus;
+}
+
 function addZero(x, n) {
   while (x.toString().length < n) {
     x = "0" + x;
@@ -273,8 +277,15 @@ function addZero(x, n) {
 function nextTab(i) {
   // This function will figure out which tab to display
   var x = document.getElementsByClassName("tab");
+  var y  = i + 1;
+  document.getElementById("input" + y).focus(); //focus on input field
   // Hide the current tab:
   x[i].style.display = "none";
+//  console.log(inputInfo);
+
+  if (i>0) {
+    document.getElementById("input" +i).blur();
+  }
   // Increase or decrease the current tab by 1:
   if (i==0) {
     //startTimer();
@@ -290,6 +301,9 @@ function nextTab(i) {
     // var A = timeStartFormat.toLocaleTimeString();
     // document.getElementById("startTime").innerHTML = A;
   }
+
+
+
   if (i >= x.length-2) {
     var timeStop = new Date();
     var x = document.getElementById("stopTime");
