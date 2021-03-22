@@ -1,0 +1,366 @@
+body {
+			font-family: Verdana, Geneva, sans-serif;
+		}
+
+h1 {
+	text-align: center;
+}
+
+
+#box {
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+				display: none;
+				position: relative;
+		}
+
+#TrailMakingTest {
+	display: block;
+}
+
+#timerDisplayTMT {
+	font-size: 12px;
+	display:inline;
+	width: 100px;
+	text-align:center;
+	margin: auto;
+}
+
+#scoreP {
+	padding:0px;
+	margin-top:0px;
+	margin-right:20px;
+}
+
+#pointCounterTMT {
+	font-size: 12px;
+	display:inline;
+	float:right;
+	width: 100px;
+	text-align:top;
+	margin: auto;
+}
+
+#p_TMT {
+	width: 200px;
+	font-size: 15px;
+	line-height: 30px;
+	height:30px;
+	background-color: pink;
+	float:right;
+	text-align:left;
+	display:inline;
+	margin:0px;
+}
+
+.p_instructions {
+	width: 700px;
+	text-align: justify;
+	font-size: 16px;
+	margin: auto;
+	margin-bottom: 25px;
+}
+
+.timerWrapper {
+	width: 100%;
+	background-color: white;
+	text-align: center;
+	height: 18px;
+	overflow: hidden;
+	clear:both;
+}
+
+#tmt_gridDiv {
+	width: 100%;
+	margin:auto;
+	justify-content: center;
+	align-content: center;
+	/*background-color: #B5B5B5; /*dark grey*/
+	padding: 10px;
+
+}
+
+#gridLayer {
+	display: grid;
+  grid-template-columns: repeat(16, 25px);
+  grid-template-rows: repeat(8, 25px);
+  grid-gap: 25px;
+	padding: 20px;
+	border-radius:12px;
+	border: 1px solid grey;
+	background-color:white; /* #DBF3FA; lightblue*/
+
+	text-align: justify;
+/*	margin-left: 100px;
+	margin-right: 100px;*/
+	margin:auto;
+	width: 780px;
+	/* max-width: 600px; */
+	top: 20px;
+	-ms-text-justify: distribute-all-lines;
+	text-justify: distribute-all-lines;
+
+}
+
+.boxBtn {
+	text-align: center;
+	font-size: 20px;
+	line-height: 40px;
+	color: black;
+	background-color: #d3d3d3 ;
+	width: 200px;
+	border: 1px gray;
+	border-style:outset;
+  border-radius: 12px;
+}
+/*this removes focus outlines on the buttons */
+*:focus:not(.focus-visible) {
+  outline: none;
+}
+
+.boxBtn:hover {
+	background-color: #a9a9a9;
+	cursor: pointer;
+}
+
+/* .boxBtn:focus {
+	border: none;
+	background-color: #a9a9a9;
+	border-radius: 50%;
+} */
+
+#transitionPage {
+	display: none;
+}
+
+#t_pageDiv {
+	text-align:center;
+	font-size: 18px;
+	margin:auto;
+	width: 700px;
+}
+
+#startButton {
+	font-size: 20px;
+	background-color: blue;
+	color: white;
+	border-radius: 12px;
+	padding: 14px 40px;
+	margin-top: 50px;
+}
+
+#startButton:hover {
+	background-color: #00008B;
+	cursor: pointer;
+}
+
+#mathTest {
+	display: none;
+}
+
+#pointCounterMath {
+	font-size: 12px;
+	display:inline;
+	float:right;
+	width: 100px;
+	text-align:top;
+	margin: auto;
+}
+
+#scorePMath {
+	padding:0px;
+	margin-top:0px;
+	margin-right:20px;
+}
+
+#p_Math {
+	width: 200px;
+	font-size: 15px;
+	background-color: pink;
+	float:right;
+	text-align:left;
+}
+
+#timerDisplaySmall{
+	font-size: 12px;
+	display:inline;
+	width: 100px;
+	text-align:center;
+	margin: auto;
+	float:left;
+}
+
+#timerDisplayMath {
+	font-size: 12px;
+	display:inline;
+	width: 100px;
+	text-align:center;
+	margin: auto;
+}
+
+.grid-container {
+  display: grid;
+	width: 800px;
+	margin: auto;
+  grid-template-columns: auto auto;
+  grid-gap: 20px;
+  background-color: white; /*#DBF3FA; lightblue */
+	border-radius:12px;
+	border: 1px solid grey;
+  padding: 10px;
+}
+
+.grid-container > div {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 30px;
+}
+
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+}
+
+
+/* #mathQuestion {
+	display: none;
+} */
+
+#mathFeedbackFaster {
+	display: none;
+	font-size: 20px;
+	text-align:center;
+	line-height: 300px;
+	position:fixed;
+	background-color: white;
+	width: 100%;
+	height:100%;
+	top:50px;
+	left:0px;
+	z-index:1000;
+}
+
+#mathFeedbackCorrect {
+	display: none;
+	font-size: 20px;
+	text-align:center;
+	line-height: 300px;
+	position:fixed;
+	background-color: white;
+	width: 100%;
+	height:100%;
+	top:50px;
+	left:0px;
+	z-index:1000;
+}
+
+#mathFeedbackWrong {
+	display: none;
+	font-size: 20px;
+	text-align:center;
+	line-height: 300px;
+	position:fixed;
+	background-color: white;
+	width: 100%;
+	height:100%;
+	top:50px;
+	left:0px;
+	z-index:1000;
+}
+
+
+#endPage {
+	display:none;
+}
+
+#feedbackScreen {
+	display:none;
+	font-size: 20px;
+	text-align:center;
+	line-height: 300px;
+	position:fixed;
+	background-color: white;
+	width: 100%;
+	height:100%;
+	top:50px;
+	left:0px;
+	z-index:1000;
+}
+
+#nextTMT {
+	display:none;
+	font-size: 20px;
+	text-align:center;
+	line-height: 300px;
+	position:fixed;
+	background-color: white;
+	width: 100%;
+	height:100%;
+	top:50px;
+	left:0px;
+	z-index:1000;
+}
+
+
+/* .checkButton {
+	text-align: center;
+	font-size: 10px;
+	width: 25px;
+  height: 25px;
+} */
+
+.btn {
+	text-align: center;
+	font-size: 12px;
+	font-family: "Times New Roman", Times, serif;
+	width: 25px;
+  height: 25px;
+  padding: 5px 5px;
+	line-height: 25px;
+	color: black;
+	background-color: #F5F5F5 ;
+  border: 1px #D3D3D3;
+	border-style:outset;
+  border-radius: 50%;
+}
+
+.btn:hover {
+    background-color: #a9a9a9;
+}
+
+
+/* .btn:active {
+    margin-left: 1px 1px 0;
+    box-shadow: -1px -1px 1px #000;
+    outline: 1px solid black;
+    -moz-outline-radius: 5px;
+    background-image: linear-gradient(to top, #f4f5f5, #dfdddd);
+} */
+
+:checked ~ *.btn {
+    background-color: #686868;
+}
+
+
+#endDiv {
+	text-align:center;
+	font-size: 18px;
+	margin:auto;
+	width: 700px;
+}
+
+#outputData {
+	font-size: 20px;
+	background-color: blue;
+	color: white;
+	border-radius: 12px;
+	padding: 14px 40px;
+	margin-top: 50px;
+}
+
+#outputData:hover {
+	background-color: #00008B;
+	cursor: pointer;
+}
