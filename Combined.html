@@ -14,9 +14,9 @@
   <div class="timerWrapper">
     <div id="timerDisplayTMT"></div> <div id="pointCounterTMT"><p id="scoreP">Score: 0</p></div>
   </div>
-  <div class="p_instructions"><p>Please click on the circles, alternating in order between the numbers and letters. Start at number 1, then select the letter, A,
-    then go to the next number, 2, and then the next letter, B, and so on.</p></div>
-  <div id="feedbackScreen"> Oops you missed a value! Resetting map. </div>
+  <div class="p_instructions"><p>Please click on the circles alternating in order between the numbers and letters. Start by finding and selecting number 1, then the letter A,
+    then number, 2, and then B, and so on.</p></div>
+  <div id="feedbackScreen"> Oops, you missed a value! Resetting map. </div>
   <div id="nextTMT"> Good job! Getting next map... </div>
   <div id="tmt_gridDiv">
     <div id="gridLayer"></div>
@@ -28,7 +28,7 @@
   <div id="t_pageDiv">
 <p class="p_instructions"> This next section, you will perform algebra for an allocated 10 minutes. <br>
   Please solve for <i>x</i> as quickly and accurately as you can and select the answer choice. <br>
-To begin, please click on the Start button.</p>
+Click the Start button to proceed.</p>
 
   <button id='startButton' onclick=timerMath()>Start</button> </div>
 </div>
@@ -58,7 +58,7 @@ To begin, please click on the Start button.</p>
 
 
 <div id="endPage">
-  <div id="endDiv"><p class="p_instructions">You have finished with this task. Please click the download button to download csv file and save it to the Human Capabilities folder on the desktop.</p>
+  <div id="endDiv"><p class="p_instructions">You are finished. Please click the Download Data button to download the .csv file with your results and save it to the Human Capabilities folder on your desktop.</p>
   <div class= "submitDiv"><button id="outputData" onclick="outputData()">Download Data</button></div>
 </div>
 </div>
@@ -80,7 +80,9 @@ for (var i = 1; i <= 76; i++) {
 }
 var midList = listOfAlpha.concat(listOfNums);
 var listOfItems = midList.concat(listOfNs);
-
+var miniTime = 30; //THIS IS TIME FOR SMALL LOOPING MATH TIMEr IN SECONDS
+var mathTime = 300; //THIS IS TIME FOR MAIN MATH TIMER IN SECONDS
+var TMTTime =300; //THIS IS TIME FOR MAIN TMT TIMER IN SECONDS
 var startTime = timingFunc();
 var runningList = [];
 var pointsTMT = [];
@@ -89,12 +91,11 @@ allNumClicked = [];
 allReactionTime =[];
 allDataPoints = [];
 makeRandomMap(listOfItems);
-var timeleft = startTimer(20) //this is timer for TMT page
+var timeleft = startTimer(TMTTime) //this is timer for TMT page
 //var smallMathTimer = setInterval(smallTimer,1000);
 var timerMini;
-var timer_is_on =0;
-var choiceCLicked=0;
-//var duration = 10;
+
+
 
 ///////////////////////////////////////////
 // CHANGE THIS SECTION WITH UPDATED MATH QUESTIONS FROM COGNITIVE LIST MASTER LIST V2
@@ -171,7 +172,7 @@ var test_stimuli3 = [
 
 ///////////////////////////////////////////////////////
 
-function setMath() {
+function setMath(textInfo) {
   const mathPage = document.getElementById('mathTest');
   mathPage.style.display = "block";
   const tPage = document.getElementById('transitionPage');
@@ -180,7 +181,7 @@ function setMath() {
   if (pointsMath.length > 14){
     var test_stimuli = test_stimuli3;
     var mathSet = 1;
-  } else if (pointsMath.length > 7){
+  } else if (pointsMath.length > 5){
     var test_stimuli = test_stimuli2;
     var mathSet = 2;
   } else {
@@ -202,13 +203,15 @@ function setMath() {
   document.getElementById('answerD').innerText = choiceD
   var dateSet = new Date();
   var timeSet = dateSet.getTime();
-  allDataPoints.push([timeSet,'Math'])
+  var why_reset = textInfo;
+  allDataPoints.push([timeSet,'Math', why_reset])
 
   clearInterval(timerMini)
   if (document.getElementById('endPage').style.display === "block"){
   } else {
-    startMiniTimer(10);
+    startMiniTimer(miniTime);
   };
+
 }
 
 function startMiniTimer(timeLeft) {
@@ -231,14 +234,15 @@ function startMiniTimer(timeLeft) {
     var clickedState3 = document.getElementById('endPage').style.display;
     if (clickedState1 == 'block' || clickedState2 =='block'){
       clearInterval(timerMini);
-      startMiniTimer(10);
+      startMiniTimer(miniTime);
     };
 //actual count down by one second
     timeLeft--;
     if (timeLeft < 0) { //if timer ends do something...
+        console.log("timeleft < 0");
         clearInterval(timerMini);
         resetMathFaster();
-    } else if (clickedState3 === "block") {
+    } else if (clickedState3 === "block" || clickedState1 === "block" || clickedState2 ==="block") {
       clearInterval(timerMini);
 }
   }, 1000);
@@ -268,27 +272,25 @@ function saveInfo() {
 
 
 function resetMathCorrect() {
-  var choiceClicked =1;
   document.getElementById('mathFeedbackCorrect').style.display = 'block';
   setTimeout(function(){ document.getElementById('mathFeedbackCorrect').style.display = 'none'; }, 1500);
   pointsMath.push(1);
   var totalPoints = pointsMath.length;
   document.getElementById('scorePMath').innerHTML ='Score: '+totalPoints;
-  setMath();
+  setMath("Correct");
 }
 
 
 function resetMathWrong() {
-  var choiceClicked =1;
   document.getElementById('mathFeedbackWrong').style.display = 'block';
   setTimeout(function(){ document.getElementById('mathFeedbackWrong').style.display = 'none'; }, 1500);
-  setMath();
+  setMath("Wrong");
 }
 
 function resetMathFaster() {
   document.getElementById('mathFeedbackFaster').style.display = 'block';
   setTimeout(function(){ document.getElementById('mathFeedbackFaster').style.display = 'none'; }, 1500);
-  setMath();
+  setMath("Timed Out");
 }
 
 // THIS IS TIMER FOR THE TMT page
@@ -322,8 +324,8 @@ function startTimer(timeLeft) {
 
 //THIS IS TIMER FOR MAIN MATH PAGE
 function timerMath(){
-    setMath();
-    var timeLeft = 10; //timeLeft should be in seconds for main math page
+    setMath("timerMath");
+    var timeLeft = mathTime; //timeLeft should be in seconds for main math page
     var mathDate = new Date();
     //var mathStartTime = mathDate.getTime();
     var timerS = setInterval(function(){
@@ -445,7 +447,7 @@ function storeFunction(event) {
     console.log(numClicked)
     console.log(correctList[runningList.length-1])
 
-    if (numClicked == correctList[correctList.length-1] && runningList.length==correctList.length-1){//correctList[correctList.length-1]){
+    if (numClicked == correctList[correctList.length-1] && runningList.length==correctList.length){//correctList[correctList.length-1]){
       var dateClicked = new Date();
       var timeClicked = dateClicked.getTime();
       var reactionTime = timeClicked - allDataPoints[allDataPoints.length-1][0];
@@ -459,7 +461,7 @@ function storeFunction(event) {
       document.getElementById('scoreP').innerHTML ='Score: '+totalPoints;
       nextTMTTrial();
 
-    } else if (numClicked == correctList[runningList.length-1]) {
+    } else if (numClicked == correctList[runningList.length-1] && runningList.length < correctList.length) {
 
   //  } else if (numClicked == Number(allNumClicked[allNumClicked.length-1])+1) {
       //elem.style.backgroundColor ='blue';
