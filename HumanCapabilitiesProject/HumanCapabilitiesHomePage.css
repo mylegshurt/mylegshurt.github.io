@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin:0;
+  }
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  margin-top: 50px;
+  text-align: center;
+  }
+
+#heading {
+  height: 100px;
+  text-align: center;
+  -ms-text-justify: distribute-all-lines;
+  text-justify: distribute-all-lines;
+}
+
+#taskselector {
+position: absolute;
+display: inline-block;
+text-align: justify;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+-ms-text-justify: distribute-all-lines;
+text-justify: distribute-all-lines;
+width: 100%;
+max-width: 600px;
+top: 50px;
+}
+
+#sessionselector {
+position: absolute;
+display: grid;
+grid-gap: 25px 100px;
+grid-template-columns: auto auto;
+text-align: justify;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+-ms-text-justify: distribute-all-lines;
+text-justify: distribute-all-lines;
+width: 100%;
+max-width: 600px;
+top: 20px;
+}
+
+#sessionselectorUnpaired {
+position: absolute;
+display: grid;
+grid-gap: 25px;
+grid-template-columns: auto;
+text-align: justify;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+-ms-text-justify: distribute-all-lines;
+text-justify: distribute-all-lines;
+width: 100%;
+max-width: 250px;
+top: 20px;
+}
+
+#message {
+  text-align:center;
+  padding: 50px;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  font-size: 18px;
+}
+
+#homeContainer {
+  margin: auto;
+  width: 50px;
+  display: block;
+
+}
+
+.task {
+  display: inline-block;
+  margin: 0px;
+  width: 150px;
+  height: 40px;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  background: #d3d3d3;
+  text-align: center;
+
+  font-stretch: expanded;
+  color: black;
+  font-size: 15px;
+  line-height: 24px; /*make this the same as height to vertically align the text*/
+  -moz-box-shadow: 3px 3px 3px #ccc;
+  -webkit-box-shadow: 3px 3px 3px #ccc;
+  box-shadow: 3px 3px 3px #ccc;
+  }
+
+.task:hover {
+  background-color: gray;
+}
+
+.stretch {
+  width: 100%;
+  display: inline-block;
+  font-size: 0;
+  line-height:0;
+}
+
+a:link {
+  text-decoration: none;
+  color:inherit;
+}
+
+img {
+  display: block;
+  margin: auto;
+  max-height:300px;
+}
+
+
+.imageContainer {
+position: relative;
+text-align: center;
+max-width: 800px;
+height: 65%;
+display: block;
+margin: auto;
+background-image: 'img/HERA_background.png';
+}
+
+.buttonContainer {
+  position: relative;
+  text-align: center;
+  max-width: 800px;
+  height: 550px;
+  display: block;
+  margin: auto;
+}
+
+.buttonContainerUnpaired {
+  position: relative;
+  text-align: center;
+  max-width: 800px;
+  height: 625px;
+  display: block;
+  margin: auto;
+}
+
+.sessionButton {
+  display: inline-grid;
+  place-items: center;
+  margin: 0;
+  border: 1px solid gray;
+  border-radius: 15px;
+  background: #ededed;
+  text-align: center;
+  height: 50px;
+}
+
+.sessionButton:hover {
+  background-color: gray;
+}
+/* ---------------------------
+     Footer settings
+-------------------------- */
+
+.footer-distributed{
+	background-color: #080F33; /*#23316F;*/
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 18px Roboto, sans-serif;
+	padding: 10px 50px;
+  display: block;
+}
+
+.footer-distributed .footer-left p{
+	color:  #8f9296;
+	font: normal 10px Roboto, sans-serif;
+	margin: 0;
+}
+
+/* Footer links */
+
+.footer-distributed p.footer-links{
+	font: bold 16px Roboto, sans-serif;
+	color:  #ffffff;
+	margin: 0 0 5px;
+	padding: 0;
+}
+
+.footer-distributed p.footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-right{
+	float: right;
+	margin-top: 6px;
+	max-width: 180px;
+}
+
+.footer-distributed .footer-right a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background-color: none; /*#33383b;*/
+	border-radius: 2px;
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+	margin-left: 3px;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 600px) {
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-right{
+		text-align: center;
+	}
+
+	.footer-distributed .footer-right{
+		float: none;
+		margin: 0 auto 20px;
+	}
+
+	.footer-distributed .footer-left p.footer-links{
+		line-height: 1.8;
+	}
+}

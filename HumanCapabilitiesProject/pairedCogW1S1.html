@@ -1,0 +1,587 @@
+<html>
+<head>
+  <title>Paired Cognitive Task</title>
+  <link rel="stylesheet" href="TrailMakingTest.css"/>
+  <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<h1>Paired Cognitive Task Session</h1>
+<br>
+
+<div id="TrailMakingTest">
+  <div id = "timeWrap" ><!-- class="timerWrapper"> -->
+    <div class="timeWrapInfo"></div>
+    <div class="timeWrapInfo">Remaining Section Time:</div>
+    <div class="timeWrapInfo">Score:</div>
+    <div class="timeWrapInfo"></div>
+    <div id="timerDisplayTMT"></div>
+    <div id="pointCounterTMT" class="timeWrapInfo"><p id="scoreP">0</p></div>
+  </div>
+  <div class="p_instructions"><p><br>Please click the circles alternating in order between the numbers and letters. Start by selecting number <img src="circle1.png" style="width:25px;height:25px;vertical-align:middle;">,
+    then the letter <img src="circleA.png" style="width:25px;height:25px;vertical-align:middle;">,
+    then number <img src="circle2.png" style="width:25px;height:25px;vertical-align:middle;"> and then <img src="circleB.png" style="width:25px;height:25px;vertical-align:middle;">, and so on.</p></div>
+  <div id="feedbackScreen"> Oops, you missed a value! Resetting map. </div>
+  <div id="nextTMT"> Good job! Getting next map... </div>
+  <div id="TMTstartBtn"><p>When ready, please click start:</p>
+    <button id='startButton' onclick="startTimer(TMTTime)">Start</button></div>
+  <div id="tmt_gridDiv">
+    <div id="gridLayer"></div>
+  </div>
+
+</div>
+
+<div id=transitionPage>
+  <div id="t_pageDiv">
+<p class="p_instructions"> This next section, you will perform algebra for an allocated 10 minutes. <br>
+  Please solve for <i>x</i> as quickly and accurately as you can and select the answer choice. <br>
+Click the Start button to proceed.</p>
+
+  <button id='startButton' onclick=timerMath()>Start</button> </div>
+</div>
+
+<div id="mathTest">
+  <div id = "timeWrap" ><!-- class="timerWrapper"> -->
+    <div class="timeWrapInfo">Remaining Question Time:</div>
+    <div class="timeWrapInfo">Remaining Section Time:</div>
+    <div class="timeWrapInfo">Score:</div>
+    <div class="timeWrapInfo" id="timerDisplaySmall"></div>
+    <div class="timeWrapInfo" id="timerDisplayMath"></div>
+    <div class="timeWrapInfo" id="pointCounterMath"><p id="scorePMath">0</p></div>
+  </div>
+  <div class="p_instructions"><p><br>Please answer the following algebra problems by solving for <i>x</i> as quickly as you can. You have 30 seconds for each question.</p></div>
+
+  <div id="mathQuestion">
+    <div class="grid-container">
+      <div class="item1" id="question"></div>
+      <div class="item2"><button class="boxBtn" id="answerA" onclick=saveInfo()></button></div>
+      <div class="item2"><button class="boxBtn" id="answerB" onclick=saveInfo()></button></div>
+      <div class="item2"><button class="boxBtn" id="answerC" onclick=saveInfo()></button></div>
+      <div class="item2"><button class="boxBtn" id="answerD" onclick=saveInfo()></button></div>
+    </div>
+  </div>
+
+  <div id="mathFeedbackFaster"> Go faster. </div>
+  <div id="mathFeedbackCorrect"> Correct. </div>
+  <div id="mathFeedbackWrong"> Incorrect. </div>
+</div>
+
+
+<div id="endPage">
+  <div id="endDiv"><p class="p_instructions">You are finished. Please click the Download Data button to download the .csv file with your results and save it to the Human Capabilities folder on your desktop.</p>
+  <div class= "submitDiv"><button id="outputData" onclick="outputData()">Download Data</button></div>
+</div>
+</div>
+
+
+</body>
+
+<script>
+var listOfAlpha = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+//var listOfAlpha = [' A',' B',' C',' D',' E',' F',' G',' H',' I',' J',' K',' L',' M',' N',' O',' P',' Q',' R',' S',' T',' U',' V',' W',' X',' Y',' Z'];
+var listOfNums = [];
+for (var i = 1; i <= 26; i++) {
+  listOfNums.push(i);
+}
+var listOfNs =[];
+for (var i = 1; i <= 76; i++) {
+  var j = 'NN'+i;
+  listOfNs.push(j);
+}
+var midList = listOfAlpha.concat(listOfNums);
+var listOfItems = midList.concat(listOfNs);
+var miniTime = 30; //THIS IS TIME FOR SMALL LOOPING MATH TIMEr IN SECONDS
+var mathTime = 300; //THIS IS TIME FOR MAIN MATH TIMER IN SECONDS
+var TMTTime =300; //THIS IS TIME FOR MAIN TMT TIMER IN SECONDS
+var startTime = timingFunc();
+var runningList = [];
+var pointsTMT = [];
+var pointsMath = [];
+allNumClicked = [];
+allReactionTime =[];
+allDataPoints = [];
+//makeRandomMap(listOfItems);
+//var timeleft = startTimer(TMTTime) //this is timer for TMT page
+//var smallMathTimer = setInterval(smallTimer,1000);
+var timerMini;
+
+
+
+///////////////////////////////////////////
+// CHANGE THIS SECTION WITH UPDATED MATH QUESTIONS FROM COGNITIVE LIST MASTER LIST V2
+var test_stimuli1 = [
+  { stimulus: '<p id="equation001A">2x = 48 - 24</p>', choices: ['a.  12','b.  14','c.  24','d.  22']},
+  { stimulus: '<p id="equation002B">6x = 31 - 37</p>', choices: ['a.  1','b.  -1','c.  12','d.  -5']},
+  { stimulus: '<p id="equation003C">4x = 29 - 21</p>', choices: ['a.  -2','b.  6','c.  2','d.  -3']},
+  { stimulus: '<p id="equation004D">5x = 37 - 7</p>', choices: ['a.  -24','b.  30','c.  -4','d.  6']},
+  { stimulus: '<p id="equation005A">x = 6 - 34</p>', choices: ['a.  -28','b.  12','c.  18','d.  -22']},
+  { stimulus: '<p id="equation006B">5x = 31 - 26</p>', choices: ['a.  -5','b.  1','c.  3','d.  -7']},
+  { stimulus: '<p id="equation007C">x = 24 - 41</p>', choices: ['a.  13','b.  33','c.  -17','d.  -25']},
+  { stimulus: '<p id="equation008D">2x = 20 - 6</p>', choices: ['a.  -7','b.  8','c.  1','d.  7']},
+  { stimulus: '<p id="equation009A">x =  41 - 47</p>', choices: ['a.  -6','b.  6','c.  8','d.  -8']},
+  { stimulus: '<p id="equation010B">2x = 14 - 50</p>', choices: ['a.  4','b.  -18','c.  16','d.  -20']},
+  { stimulus: '<p id="equation011C">10x = 17 - 37</p>', choices: ['a.  -20','b.  7','c.  -2','d.  44']},
+  { stimulus: '<p id="equation012D">6x = 29 - 23</p>', choices: ['a.  12','b.  -2','c.  9','d.  1']},
+  { stimulus: '<p id="equation013A">x = 32 - 14</p>', choices: ['a.  18','b.  7','c.  28','d.  4']},
+  { stimulus: '<p id="equation014B">x = 47 - 9</p>', choices: ['a.  32','b.  38','c.  26','d.  28']},
+  { stimulus: '<p id="equation015C">3x = 43 - 16</p>', choices: ['a.  33','b.  11','c.  9','d.  18']},
+  { stimulus: '<p id="equation016D">6x = 1 - 31</p>', choices: ['a.  -6','b.  -4','c.  -32','d.  -5']},
+  { stimulus: '<p id="equation017A">x = 38 - 17</p>', choices: ['a.  21','b.  25','c.  15','d.  17']},
+  { stimulus: '<p id="equation018B">7x = 34 - 27</p>', choices: ['a.  13','b.  1','c.  7','d.  14']},
+  { stimulus: '<p id="equation019C">2x = 19 - 47</p>', choices: ['a.  -22','b.  -7','c.  -14','d.  -12']},
+  { stimulus: '<p id="equation020D">5x = 38 - 23</p>', choices: ['a.  1','b.  5','c.  11','d.  3']},
+  { stimulus: '<p id="equation021A">x = 32 - 4</p>', choices: ['a.  28','b.  22','c.  26','d.  18']},
+  { stimulus: '<p id="equation022B">3x = 42 - 12</p>', choices: ['a.  30','b.  10','c.  8','d.  5']},
+  { stimulus: '<p id="equation023C">10x = 12 - 32</p>', choices: ['a.  -12','b.  -20','c.  -2','d.  -5']},
+  { stimulus: '<p id="equation024D">x = 32 - 36</p>', choices: ['a.  6','b.  -6','c.  4','d.  -4']}
+]
+var test_stimuli2 = [
+  { stimulus: '<p id="equation025A">8x + 6 = 4x + 54</p>', choices: ['a.  12','b.  -2','c.  3','d.  -9']},
+  { stimulus: '<p id="equation026B">5x + 95 = 6x + 72</p>', choices: ['a.  45','b.  23','c.  -3','d.  ']},
+  { stimulus: '<p id="equation027C">9x + 28 = 7x + 56</p>', choices: ['a.  6','b.  -18','c.  14','d.  ']},
+  { stimulus: '<p id="equation028D">8x + 59 = 3x + 19</p>', choices: ['a.  17','b.  21','c.  18','d.  -8']},
+  { stimulus: '<p id="equation029A">x + 59 = 2x + 80</p>', choices: ['a.  -21','b.  11','c.  9','d.  -9']},
+  { stimulus: '<p id="equation030B">6x + 78 = 3x + 39</p>', choices: ['a.  -9','b.  -13','c.  3','d.  12']},
+  { stimulus: '<p id="equation031C">x + 43 = 7x + 37</p>', choices: ['a.  3','b.  10','c.  1','d.  -4']},
+  { stimulus: '<p id="equation032D">7x + 11 = 8x + 48</p>', choices: ['a.  -32','b.  7','c.  12','d.  -37']},
+  { stimulus: '<p id="equation033A">7x + 51 = 6x + 98</p>', choices: ['a.  47','b.  -17','c.  -5','d.  35']},
+  { stimulus: '<p id="equation034B">x + 67 = 6x + 32</p>', choices: ['a.  4','b.  7','c.  3','d.  -11']},
+  { stimulus: '<p id="equation035C">4x + 27 = 3x + 74</p>', choices: ['a.  14','b.  57','c.  47','d.  -24']},
+  { stimulus: '<p id="equation036D">7x + 17 = 8x + 51</p>', choices: ['a.  -23','b.  14','c.  13','d.  -34']},
+  { stimulus: '<p id="equation037A">8x + 18 = 9x + 58</p>', choices: ['a.  -40','b.  -20','c.  10','d.  30']},
+  { stimulus: '<p id="equation038B">8x + 19 = 7x + 1</p>', choices: ['a.  9','b.  -18','c.  27','d.  21']},
+  { stimulus: '<p id="equation039C">7x + 75 = x + 3</p>', choices: ['a.  22','b.  11','c.  -12','d.  -36']},
+  { stimulus: '<p id="equation040D">6x + 8 = 9x + 95</p>', choices: ['a.  -19','b.  16','c.  -6','d.  -29']},
+  { stimulus: '<p id="equation041A">5x + 47 = 2x + 20</p>', choices: ['a.  -9','b.  -7','c.  3','d.  12']},
+  { stimulus: '<p id="equation042B">9x + 56 = 7x + 78</p>', choices: ['a.  1','b.  11','c.  -3','d.  -6']},
+  { stimulus: '<p id="equation043C">9x + 77 = 10x + 83</p>', choices: ['a.  -9','b.  15','c.  -6','d.  2']},
+  { stimulus: '<p id="equation044D">2x + 44 = 3x + 43</p>', choices: ['a.  11','b.  -2','c.  10','d.  1']},
+  { stimulus: '<p id="equation045A">2x + 9 = 5x + 48</p>', choices: ['a.  -13','b.  45','c.  -22','d.  7']},
+  { stimulus: '<p id="equation046B">3x + 90 = 4x + 34</p>', choices: ['a.  26','b.  56','c.  -14','d.  23']},
+  { stimulus: '<p id="equation047C">6x + 65 = 5x + 85</p>', choices: ['a.  17','b.  -12','c.  20','d.  10']},
+  { stimulus: '<p id="equation048D">8x + 6 = 7x + 5</p>', choices: ['a.  3','b.  -4','c.  2','d.  -1']}
+]
+var test_stimuli3 = [
+  { stimulus: '<p id="equation049A">6(x + 8) = 8x - 98</p>', choices: ['a.  73','b.  37','c.  -14','d.  12']},
+{ stimulus: '<p id="equation050B">7(x + 4) = 3x - 76</p>', choices: ['a.  16','b.  -26','c.  -24','d.  14']},
+{ stimulus: '<p id="equation051C">9(x + 8) = 10x - 9</p>', choices: ['a.  11','b.  -66','c.  81','d.  -26']},
+{ stimulus: '<p id="equation052D">7(x + 3) = 10x - 15</p>', choices: ['a.  -42','b.  -14','c.  4','d.  12']},
+{ stimulus: '<p id="equation053A">8(x + 6) = 7x - 55</p>', choices: ['a.  -103','b.  -88','c.  73','d.  55']},
+{ stimulus: '<p id="equation054B">4(x + 6) = x - 48</p>', choices: ['a.  14','b.  -24','c.  54','d.  -34']},
+{ stimulus: '<p id="equation055C">6(x + 10) = 4x - 4</p>', choices: ['a.  22','b.  -78','c.  -32','d.  58']},
+{ stimulus: '<p id="equation056D">2(x + 3) = 3x - 61</p>', choices: ['a.  47','b.  101','c.  91','d.  67']},
+{ stimulus: '<p id="equation057A">10(x + 10) = 9x - 90</p>', choices: ['a.  -190','b.  -25','c.  44','d.  36']},
+{ stimulus: '<p id="equation058B">6(x + 2) = 10x - 24</p>', choices: ['a.  -9','b.  9','c.  33','d.  -13']},
+{ stimulus: '<p id="equation059C">8(x + 3) = 2x - 42</p>', choices: ['a.  55','b.  -8','c.  -11','d.  37']},
+{ stimulus: '<p id="equation060D">2(x + 5) = 4x - 4</p>', choices: ['a.  -17','b.  13','c.  -8','d.  7']},
+{ stimulus: '<p id="equation061A">6(x + 1) = 5x - 46</p>', choices: ['a.  -52','b.  -22','c.  16','d.  26']},
+{ stimulus: '<p id="equation062B">8(x + 5) = 3x - 95</p>', choices: ['a.  -9','b.  -27','c.  45','d.  3']},
+{ stimulus: '<p id="equation063C">10(x + 3) = 7x - 75</p>', choices: ['a.  5','b.  10','c.  -35','d.  -20']},
+{ stimulus: '<p id="equation064D">1(x + 10) = 3x - 84</p>', choices: ['a.  37','b.  -23','c.  43','d.  47']}
+]
+
+///////////////////////////////////////////////////////
+
+function setMath(textInfo) {
+  const mathPage = document.getElementById('mathTest');
+  mathPage.style.display = "block";
+  const tPage = document.getElementById('transitionPage');
+  tPage.style.display = "none";
+
+  if (pointsMath.length > 14){
+    var test_stimuli = test_stimuli3;
+    var mathSet = 1;
+  } else if (pointsMath.length > 5){
+    var test_stimuli = test_stimuli2;
+    var mathSet = 2;
+  } else {
+    var test_stimuli = test_stimuli1;
+    var mathSet = 3;
+  }
+
+  var random = Math.floor(Math.random() * test_stimuli.length);
+  var nextQuestion = test_stimuli[random].stimulus;
+  var choiceText = test_stimuli[random].choices;
+  var choiceA = choiceText[0];
+  var choiceB = choiceText[1];
+  var choiceC = choiceText[2];
+  var choiceD = choiceText[3];
+  document.getElementById('question').innerHTML = nextQuestion
+  document.getElementById('answerA').innerText = choiceA
+  document.getElementById('answerB').innerText = choiceB
+  document.getElementById('answerC').innerText = choiceC
+  document.getElementById('answerD').innerText = choiceD
+  var dateSet = new Date();
+  var timeSet = dateSet.getTime();
+  var why_reset = textInfo;
+  allDataPoints.push([timeSet,'Math', why_reset])
+
+  clearInterval(timerMini)
+  if (document.getElementById('endPage').style.display === "block"){
+  } else {
+    startMiniTimer(miniTime);
+  };
+
+}
+
+function startMiniTimer(timeLeft) {
+  var timerMini = setInterval(function(){
+//sets format of the mintues and seconds
+    let minutes = Math.floor(timeLeft/60)
+    if (minutes <10) {
+      minutes ='0'+minutes;
+    }
+    let seconds = timeLeft % 60;
+    if (seconds < 10) {
+      seconds = '0'+ seconds;
+    }
+
+//puts countdown time into the div
+    document.getElementById('timerDisplaySmall').innerHTML=minutes+':'+seconds;
+
+    var clickedState1 = document.getElementById('mathFeedbackCorrect').style.display;
+    var clickedState2 = document.getElementById('mathFeedbackWrong').style.display;
+    var clickedState3 = document.getElementById('endPage').style.display;
+
+    if (clickedState1 == 'block' || clickedState2 =='block'){
+      clearInterval(timerMini);
+      setMath("clickedState");
+      //startMiniTimer(miniTime);
+    } else if(clickedState3 === "block"){
+        clearInterval(timerMini);
+    } else {
+        timeLeft--;
+        if (timeLeft < 0) { //if timer ends do something...
+          console.log("timeleft < 0");
+          clearInterval(timerMini);
+          resetMathFaster();
+        }
+      }
+//actual count down by one second
+      // timeLeft--;
+      // if (timeLeft < 0) { //if timer ends do something...
+      //     console.log("timeleft < 0");
+      //     clearInterval(timerMini);
+      //     resetMathFaster();
+      //   } else if (clickedState3 === "block" || clickedState1 === "block" || clickedState2 ==="block") {
+      //     clearInterval(timerMini);
+      //   }
+      // }
+  }, 1000);
+}
+
+
+function saveInfo() {
+  var mathElem = event.target;
+  var mathAnswer = mathElem.id.replace('answer','');
+  var paragraphQ = document.getElementById('question').innerHTML;
+  var mathQ = paragraphQ.substr(21,21);
+  mathQ = mathQ.replace(/[</p>]/g,'');
+  var dateClicked = new Date();
+  var timeClicked = dateClicked.getTime();
+  var reactionTime = timeClicked - allDataPoints[allDataPoints.length-1][0];
+  clearInterval(timerMini)
+
+  if (mathAnswer == paragraphQ.substr(18,1)) {
+    var dataPoint = [timeClicked, reactionTime, mathQ, 'correct'];
+    allDataPoints.push(dataPoint);
+    resetMathCorrect()
+  } else {
+    var dataPoint = [timeClicked, reactionTime, mathQ, 'wrong'];
+    allDataPoints.push(dataPoint)
+    resetMathWrong()
+  }
+}
+
+
+function resetMathCorrect() {
+  document.getElementById('mathFeedbackCorrect').style.display = 'block';
+  setTimeout(function(){ document.getElementById('mathFeedbackCorrect').style.display = 'none'; }, 1500);
+  pointsMath.push(1);
+  var totalPoints = pointsMath.length;
+  document.getElementById('scorePMath').innerHTML ='Score: '+totalPoints;
+//  setMath("Correct");
+}
+
+
+function resetMathWrong() {
+  document.getElementById('mathFeedbackWrong').style.display = 'block';
+  setTimeout(function(){ document.getElementById('mathFeedbackWrong').style.display = 'none'; }, 1500);
+//  setMath("Wrong");
+}
+
+function resetMathFaster() {
+  document.getElementById('mathFeedbackFaster').style.display = 'block';
+  setTimeout(function(){ document.getElementById('mathFeedbackFaster').style.display = 'none'; }, 1500);
+  setMath("Timed Out");
+}
+
+// THIS IS TIMER FOR THE TMT page
+function startTimer(timeLeft) {
+//  var countDownS = timeLeft; //timeLeft should be in seconds
+  var timerS = setInterval(function(){
+//sets format of the mintues and seconds
+    let minutes = Math.floor(timeLeft/60)
+    if (minutes <10) {
+      minutes ='0'+minutes;
+    }
+    let seconds = timeLeft % 60;
+    if (seconds < 10) {
+      seconds = '0'+ seconds;
+    }
+//puts countdown time into the div
+    document.getElementById('timerDisplayTMT').innerHTML=minutes+':'+seconds;
+//actual count down by one second
+    timeLeft--;
+    if (timeLeft < 0) { //if timer ends do something...
+        clearInterval(timerS);
+        const tmtPage = document.getElementById("TrailMakingTest");
+        const tPage = document.getElementById("transitionPage")
+        tmtPage.style.display = "none";
+        tPage.style.display ="block";
+        }
+  }, 1000);
+  makeRandomMap(listOfItems);
+}
+
+
+
+//THIS IS TIMER FOR MAIN MATH PAGE
+function timerMath(){
+    setMath("timerMath");
+    var timeLeft = mathTime; //timeLeft should be in seconds for main math page
+    var mathDate = new Date();
+    //var mathStartTime = mathDate.getTime();
+    var timerS = setInterval(function(){
+  //sets format of the mintues and seconds
+      let minutes = Math.floor(timeLeft/60)
+      if (minutes <10) {
+        minutes ='0'+minutes;
+      }
+      let seconds = timeLeft % 60;
+      if (seconds < 10) {
+        seconds = '0'+ seconds;
+      }
+  //puts countdown time into the div
+      document.getElementById('timerDisplayMath').innerHTML=minutes+':'+seconds;
+  //actual count down by one second
+      timeLeft--;
+       //if timer ends do something...
+      if (timeLeft < 0) {
+        clearInterval(timerS);
+        const tmtPage = document.getElementById("TrailMakingTest");
+        const mathPage = document.getElementById("mathTest");
+        const mathFasterPage = document.getElementById('mathFeedbackFaster');
+        mathPage.style.display ="none";
+        mathFasterPage.style.display ="none";
+        endPage.style.display ="block";
+          }
+    }, 1000);
+}
+
+
+function makeRandomMap(list1) {
+  //var listOfItems = "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 17 18 19 20 21 22 23 24 25 26 N1 N2 N3 N4 N5 N6 N7 N8";
+  document.getElementById('tmt_gridDiv').style.display="block";
+  document.getElementById('TMTstartBtn').style.display="none";
+  console.log(list1);
+  //var items = list1.split(' ');
+  var itemsLength = list1.length;
+  for (var i = 1; i <= itemsLength; i++){
+    var positionItem = Math.round(Math.random() * (itemsLength-i))
+    var selectedItem = list1[positionItem].toString();
+  //  console.log(selectedItem);
+  //creates an empty div for Null values
+    if (selectedItem.includes('NN')){
+      var myDiv = document.createElement('div');
+      myDiv.setAttribute('class','box');
+      document.getElementById("gridLayer").appendChild(myDiv);
+
+      //this creates the checkbox (normally floats above the number)
+      //this else if creates a blank space in front of single digits or letters
+    } else if (selectedItem.length ==1){
+      var selectedItem = '\xa0' +selectedItem + '\xa0';
+      var btnItem = document.createElement('input');
+      btnItem.type="checkbox";
+      btnItem.name="cb";
+      btnItem.style.display = 'none';
+      btnItem.id="cbID"+selectedItem;
+      btnItem.addEventListener("click", storeFunction);
+      //console.log(btnItem);
+
+      var btnText = document.createElement('label');
+      //btnText.htmlFor ="btnControl"+selectedItem;
+      btnText.htmlFor = "cbID"+selectedItem;
+      btnText.className ="btn";
+      btnText.appendChild(document.createTextNode(selectedItem));
+
+      var myDiv = document.createElement('div');
+      myDiv.setAttribute('class','box');
+      document.getElementById("gridLayer").appendChild(myDiv);
+      myDiv.appendChild(btnItem);
+      myDiv.appendChild(btnText);
+
+    } else {
+      var btnItem = document.createElement('input');
+      btnItem.type="checkbox";
+      btnItem.name="cb";
+      btnItem.style.display = 'none';
+      btnItem.id="cbID"+selectedItem;
+      btnItem.addEventListener("click", storeFunction);
+      //console.log(btnItem);
+
+      var btnText = document.createElement('label');
+      btnText.htmlFor = "cbID"+selectedItem;
+      btnText.className ="btn";
+      btnText.appendChild(document.createTextNode(selectedItem));
+
+      var myDiv = document.createElement('div');
+      myDiv.setAttribute('class','box');
+      document.getElementById("gridLayer").appendChild(myDiv);
+      myDiv.appendChild(btnItem);
+      myDiv.appendChild(btnText);
+
+    }
+  list1.splice(positionItem,1);
+  var time_map_created = timingFunc();
+
+  //console.log(items);
+};
+allDataPoints.push([time_map_created, 'TMT']);
+console.log(list1)
+}
+
+function timingFunc(){
+  var date = new Date();
+  var timeCreated = date.getTime();
+  return timeCreated;
+};
+
+function storeFunction(event) {
+  var elem = event.target;
+  var correctList= [1,'A',2,'B',3,'C',4,'D',5,'E',6,'F',7,'G',8,'H',9,'I',10,'J',11,'K',12,'L',13,'M',14,'N',15,'O',16,'P',17,'Q',18,'R',19,'S',20,'T',21,'U',22,'V',23,'W',24,'X',25,'Y',26,'Z'];
+
+  //this if creates an isolated value of the item clicked
+  if(elem.name==="cb") {
+    var itemClicked = elem.id.replace('cbID', '');
+    var numClick = itemClicked.replace(/\xa0/g,''); //this removes the weird spaces around single digits
+    var numClicked = numClick.toString();
+    // function(matched){
+    //   return mapObj[matched];
+    //   });
+    runningList.push(numClicked); //add selected item to running list
+    console.log(numClicked)
+    console.log(correctList[runningList.length-1])
+
+    if (numClicked == correctList[correctList.length-1] && runningList.length==correctList.length){//correctList[correctList.length-1]){
+      var dateClicked = new Date();
+      var timeClicked = dateClicked.getTime();
+      var reactionTime = timeClicked - allDataPoints[allDataPoints.length-1][0];
+      var dataPoint = [timeClicked, reactionTime, numClicked];
+
+      allDataPoints.push(dataPoint);
+      allNumClicked.push(numClicked);
+      pointsTMT.push(1);
+      console.log(pointsTMT.length);
+      var totalPoints = pointsTMT.length;
+      document.getElementById('scoreP').innerHTML ='Score: '+totalPoints;
+      nextTMTTrial();
+
+    } else if (numClicked == correctList[runningList.length-1] && runningList.length < correctList.length) {
+
+  //  } else if (numClicked == Number(allNumClicked[allNumClicked.length-1])+1) {
+      //elem.style.backgroundColor ='blue';
+      var dateClicked = new Date();
+      var timeClicked = dateClicked.getTime();
+      var reactionTime = timeClicked - allDataPoints[allDataPoints.length-1][0];
+      var dataPoint = [timeClicked, reactionTime, numClicked];
+      allDataPoints.push(dataPoint);
+      console.log("Good Click!")
+    //  resetTrial();
+
+
+    } else {
+    //  elem.style.backgroundColor ='blue';
+      var dateClicked = new Date();
+      var timeClicked = dateClicked.getTime();
+      var reactionTime = timeClicked - allDataPoints[allDataPoints.length-1][0];
+      var dataPoint = [timeClicked, reactionTime, numClicked];
+      allDataPoints.push(dataPoint);
+      allNumClicked.push(numClicked);
+      resetTrial();
+      console.log("I'm in else!");
+
+    };
+};
+}
+
+
+function resetTrial() {
+  var listOfAlpha = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+  var listOfNums = [];
+  for (var i = 1; i <= 26; i++) {
+    listOfNums.push(i);
+  }
+  var listOfNs =[];
+  for (var i = 1; i <= 76; i++) {
+    var j = 'NN'+i;
+    listOfNs.push(j);
+  }
+  var midList = listOfAlpha.concat(listOfNums);
+  var listOfItems = midList.concat(listOfNs);
+  document.getElementById('feedbackScreen').style.display = 'block';
+  setTimeout(function(){ document.getElementById('feedbackScreen').style.display = 'none'; }, 2000);
+  var el = document.getElementById('gridLayer');
+  while ( el.firstChild ) el.removeChild( el.firstChild );
+  runningList=[];
+  makeRandomMap(listOfItems);
+}
+
+
+function nextTMTTrial() {
+  var listOfAlpha = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+  var listOfNums = [];
+  for (var i = 1; i <= 26; i++) {
+    listOfNums.push(i);
+  }
+  var listOfNs =[];
+  for (var i = 1; i <= 76; i++) {
+    var j = 'NN'+i;
+    listOfNs.push(j);
+  }
+  var midList = listOfAlpha.concat(listOfNums);
+  var listOfItems = midList.concat(listOfNs);
+  document.getElementById('nextTMT').style.display = 'block';
+  setTimeout(function(){ document.getElementById('nextTMT').style.display = 'none'; }, 2000);
+  var el = document.getElementById('gridLayer');
+  while ( el.firstChild ) el.removeChild( el.firstChild );
+
+  runningList=[]; // clears runningList
+  makeRandomMap(listOfItems);
+}
+
+/// this function converts "allDataPoints" (an array of array) into a downloading csv file
+function outputData() {
+  var rows = allDataPoints;
+
+  let csvContent = "data:text/csv;charset=utf-8,"
+      + rows.map(e => e.join(",")).join("\n");
+
+  var encodedUri = encodeURI(csvContent);
+  var link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", "my_data.csv");
+  document.body.appendChild(link); // Required for FF
+
+  link.click();
+}
+
+
+
+
+</script>
+
+
+
+</html>
