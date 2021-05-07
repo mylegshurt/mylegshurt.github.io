@@ -10,6 +10,9 @@ h1 {
 @font-face { font-family: indieflower-regular;
 			 src: url('IndieFlower-Regular.ttf') format('truetype'); }
 
+@font-face { font-family: gloria-regular;
+			src: url('GloriaHallelujah-Regular.ttf') format('truetype'); }
+
 #box {
 				width: 200px;
 				height: 200px;
@@ -467,6 +470,13 @@ top: 60px;
 	text-align:left;
 	align-self: center;
 	font-family: indieflower-regular;
+	font-size: 1.75em;
+}
+
+.DEitemsData2{
+	text-align:left;
+	align-self: center;
+	font-family: gloria-regular;
 	font-size: 1.75em;
 }
 
