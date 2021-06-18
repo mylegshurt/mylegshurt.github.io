@@ -93,7 +93,6 @@ h1 {
 
 #timeWrap {
 position: absolute;
-display: grid;
 grid-gap: 5px 5px;
 grid-template-columns: auto auto auto;
 text-align: justify;
@@ -107,6 +106,25 @@ text-justify: distribute-all-lines;
 width: 100%;
 max-width: 600px;
 top: 60px;
+display:none;
+}
+
+#timeWrapM {
+position: absolute;
+grid-gap: 5px 5px;
+grid-template-columns: auto auto auto;
+text-align: justify;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 5px;
+left: 0;
+right: 0;
+-ms-text-justify: distribute-all-lines;
+text-justify: distribute-all-lines;
+width: 100%;
+max-width: 600px;
+top: 60px;
+display:grid;
 }
 
 .timeWrapInfo {
@@ -471,13 +489,6 @@ top: 60px;
 	align-self: center;
 	font-family: indieflower-regular;
 	font-size: 1.75em;
-}
-
-.DEitemsData2{
-	text-align:left;
-	align-self: center;
-	font-family: gloria-regular;
-	font-size: 1.5em;
 }
 
 
