@@ -64,7 +64,7 @@
 </body>
 
 <script>
-var DETime = 120; //THIS IS THE TIME ALLOTED FOR THE DATA ENTRY TASK IN SECONDS
+var DETime = 1200; //THIS IS THE TIME ALLOTED FOR THE DATA ENTRY TASK IN SECONDS
 var allDataPoints = [];
 var pointsDE =[];
 
@@ -271,7 +271,10 @@ var test_stimuli = [
 
 
 function startTimer(timeLeft) {
+  document.getElementById('timeWrap').style.display="grid";
+
 //  var countDownS = timeLeft; //timeLeft should be in seconds
+
   var timerS = setInterval(function(){
 //sets format of the mintues and seconds
     let minutes = Math.floor(timeLeft/60)
