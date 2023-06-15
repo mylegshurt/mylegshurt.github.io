@@ -365,11 +365,30 @@ ul.grid{
 		align-items:center;
   }
 
+	.projectDescriptionText{
+		text-align:center;
+	}
+
 }
 
-.sup { 
+.sup {
 	vertical-align: super;
 }
+
+/*----------------------
+ 	News Section
+----------------------*/
+.newsDate {
+	width: 30%;
+	justify-content: center;
+	margin-bottom: 2%;
+	align-items: center;
+	display: flex;
+	font-size: 30px;
+}
+
+
+
 
 /*----------------------
  	Features Section
